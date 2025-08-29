@@ -117,56 +117,6 @@ export default function UserDashboard() {
                   <button onClick={() => goTo('LAPORAN')} className="text-xs mt-1 underline underline-offset-4">More Info →</button>
                 </div>
               </div>
-
-              <div className="px-2 md:px-6 mt-6">
-                <div className="rounded-sm overflow-hidden border border-gray-200 bg-white">
-                  <table className="min-w-max w-full text-sm">
-                    <thead className="bg-sky-50">
-                      <tr className="text-sky-800">
-                        <th className="text-left px-4 py-3 font-semibold">No</th>
-                        <th className="text-left px-4 py-3 font-semibold">Doc Number</th>
-                        <th className="text-left px-4 py-3 font-semibold">Date</th>
-                        <th className="text-left px-4 py-3 font-semibold">Type</th>
-                        <th className="text-left px-4 py-3 font-semibold">Name / Title</th>
-                        <th className="text-center px-4 py-3 font-semibold">Action</th>
-                      </tr>
-                    </thead>
-
-                    <tbody className="divide-y divide-gray-200">
-                      {approvedDocs.length === 0 ? (
-                        <tr>
-                          <td colSpan={6} className="px-4 py-6 text-center text-gray-500">
-                            No approved documents
-                          </td>
-                        </tr>
-                      ) : (
-                        approvedDocs.map((doc, idx) => (
-                          <tr key={doc.id} className="hover:bg-gray-50">
-                            <td className="px-4 py-3">{idx + 1}</td>
-                            <td className="px-4 py-3">{doc.documentNo}</td>
-                            <td className="px-4 py-3">
-                              {doc.modifiedDate ? new Date(doc.modifiedDate).toLocaleDateString() : '-'}
-                            </td>
-                            <td className="px-4 py-3">{doc.docType}</td>
-                            <td className="px-4 py-3">{doc.docName}</td>
-                            <td className="px-4 py-3 text-center">
-                            <a
-                              href={`/api/document/${doc.id}/pdf`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center justify-center h-8 w-8 rounded-full hover:bg-sky-100 text-sky-700"
-                              title="Lihat Lembar Pengesahan"
-                            >
-                              <FaEye /> 
-                            </a>
-                          </td>
-                          </tr>
-                        ))
-                      )}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
               <div className="px-6 mt-8">
                 <h3 className="text-md font-semibold mb-4 border-b border-gray-300 w-full text-center pb-2">
                   ISO & Certification
